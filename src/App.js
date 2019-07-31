@@ -327,16 +327,28 @@ class App extends React.Component {
               alignItems: "center"
             }}
           >
-            <button disabled={!first.turn} onClick={this.toRight}>
+            <button
+              disabled={!first.turn || (first.left === 5 || first.right === 5)}
+              onClick={this.toRight}
+            >
               To Right!
             </button>
-            <button disabled={!first.turn} onClick={this.fromLeft}>
+            <button
+              disabled={!first.turn || first.left === 5}
+              onClick={this.fromLeft}
+            >
               To Alexas From Left!
             </button>
-            <button disabled={!first.turn} onClick={this.fromRight}>
+            <button
+              disabled={!first.turn || first.right === 5}
+              onClick={this.fromRight}
+            >
               To Alexas From Right!
             </button>
-            <button disabled={!first.turn} onClick={this.toLeft}>
+            <button
+              disabled={!first.turn || (first.right === 5 || first.left === 5)}
+              onClick={this.toLeft}
+            >
               To Left!
             </button>
           </div>
