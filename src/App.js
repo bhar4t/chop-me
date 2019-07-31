@@ -145,7 +145,9 @@ class App extends React.Component {
       second.right = first.left + second.right;
       this.setState({ second }, this.switchTurn);
     } else if (first.left + second.left < 5 && first.left + second.right < 5) {
-      const right = window.confirm(`Want to chop Alexa's right Hand`);
+      const right = window.confirm(
+        `Want to chop Alexa's right Hand, Cancel for left`
+      );
       if (right) {
         second.right = first.left + second.right;
         this.setState({ second }, this.switchTurn);
@@ -176,7 +178,9 @@ class App extends React.Component {
       first.right + second.left < 5 &&
       first.right + second.right < 5
     ) {
-      const right = window.confirm(`Want to chop Alexa's right Hand`);
+      const right = window.confirm(
+        `Want to chop Alexa's right Hand, Cancel for left`
+      );
       if (right) {
         second.right = first.right + second.right;
         this.setState({ second }, this.switchTurn);
