@@ -91,14 +91,20 @@ class App extends React.Component {
     const first = this.state.first;
     const second = this.state.second;
     if (first.left + first.right === 10) {
-      first.turn = false;
-      second.turn = false;
-      this.setState({ isStarted: false, first, second });
+      const player = {
+        turn: false,
+        left: 1,
+        right: 1
+      };
+      this.setState({ isStarted: false, first: player, second: player });
       alert("You Lost! Try Again.");
     } else if (second.left + second.right === 10) {
-      first.turn = false;
-      second.turn = false;
-      this.setState({ isStarted: false, first, second });
+      const player = {
+        turn: false,
+        left: 1,
+        right: 1
+      };
+      this.setState({ isStarted: false, first: player, second: player });
       alert("Congrats! You Won.");
     }
     if (first.turn) {
