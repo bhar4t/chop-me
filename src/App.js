@@ -208,7 +208,35 @@ class App extends React.Component {
           flexDirection: "column"
         }}
       >
-        <div style={{ display: "flex", width: window.innerWidth }} />
+        <div
+          style={{
+            display: "flex",
+            width: window.innerWidth,
+            justifyContent: "space-evenly",
+            alignItems: "center",
+            height: 80,
+            backgroundColor: "rgba(89, 89, 89, 0.1)"
+          }}
+        >
+          <span
+            style={{
+              flex: 3,
+              width: "100px",
+              textAlign: "right",
+              fontSize: "1.5em",
+              color: "white"
+            }}
+          >
+            Chop-Chop
+          </span>
+          <img
+            src="chops.png"
+            alt=""
+            height="80%"
+            width="50%"
+            style={{ flex: 1, objectFit: "contain" }}
+          />
+        </div>
         <div
           style={{ flex: 1, display: "flex", width: "100%", height: "100%" }}
         >
