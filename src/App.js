@@ -9,8 +9,7 @@ class App extends React.Component {
       first: {
         turn: false,
         left: 1,
-        right: 1,
-        url: () => "xsy"
+        right: 1
       },
       second: {
         turn: false,
@@ -22,47 +21,51 @@ class App extends React.Component {
 
   componentWillMount() {
     setInterval(() => {
-      console.log(this.state.isStarted, this.state.second.turn);
-      if (this.state.isStarted && this.state.second.turn) {
-        console.log(1);
-        const first = this.state.first;
-        const second = this.state.second;
-        if (second.right + first.right === 5) {
-          first.right = second.right + first.right;
-          this.setState({ first }, this.switchTurn);
-        } else if (second.right + first.left === 5) {
-          first.left = second.right + first.left;
-          this.setState({ first }, this.switchTurn);
-        } else if (second.left + first.right === 5) {
-          first.right = second.left + first.right;
-          this.setState({ first }, this.switchTurn);
-        } else if (second.left + first.left === 5) {
-          first.left = second.left + first.left;
-          this.setState({ first }, this.switchTurn);
-        } else if (second.left + second.right < 5) {
-          // assign randomly
-          second.right = second.right + second.left;
-          this.setState({ first }, this.switchTurn);
-        } else if (second.right + first.right < 5) {
-          first.right = second.right + first.right;
-          this.setState({ first }, this.switchTurn);
-        } else if (second.right + first.left < 5) {
-          first.left = second.right + first.left;
-          this.setState({ first }, this.switchTurn);
-        } else if (second.left + first.right < 5) {
-          first.right = second.left + first.right;
-          this.setState({ first }, this.switchTurn);
-        } else if (second.left + first.left < 5) {
-          first.left = second.left + first.left;
-          this.setState({ first }, this.switchTurn);
-        } else {
-          first.turn = false;
-          second.turn = false;
-          this.setState({ isStarted: false, first, second });
-          alert("Game Over");
+      setTimeout(() => {
+        if (this.state.isStarted && this.state.second.turn) {
+          console.log(1);
+          const first = this.state.first;
+          const second = this.state.second;
+          if (second.right + first.right === 5) {
+            first.right = second.right + first.right;
+            this.setState({ first }, this.switchTurn);
+          } else if (second.right + first.left === 5) {
+            first.left = second.right + first.left;
+            this.setState({ first }, this.switchTurn);
+          } else if (second.left + first.right === 5) {
+            first.right = second.left + first.right;
+            this.setState({ first }, this.switchTurn);
+          } else if (second.left + first.left === 5) {
+            first.left = second.left + first.left;
+            this.setState({ first }, this.switchTurn);
+          } else if (second.left + second.right < 5) {
+            // assign randomly
+            second.right = second.right + second.left;
+            this.setState({ first }, this.switchTurn);
+          } else if (second.right + first.right < 5) {
+            first.right = second.right + first.right;
+            this.setState({ first }, this.switchTurn);
+          } else if (second.right + first.left < 5) {
+            first.left = second.right + first.left;
+            this.setState({ first }, this.switchTurn);
+          } else if (second.left + first.right < 5) {
+            first.right = second.left + first.right;
+            this.setState({ first }, this.switchTurn);
+          } else if (second.left + first.left < 5) {
+            first.left = second.left + first.left;
+            this.setState({ first }, this.switchTurn);
+          } else {
+            const player = {
+              turn: false,
+              left: 1,
+              right: 1
+            };
+            this.setState({ isStarted: false, first: player, second: player });
+            alert("Game Over");
+          }
         }
-      }
-    }, 4080);
+      }, 2000);
+    }, 4000);
   }
 
   getStartTurn = () => {
